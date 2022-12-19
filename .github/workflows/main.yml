@@ -18,12 +18,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ env.NODE_VERSION }}
-    - name: Upload artifact for deployment job  #Before node_modules, AppService will handle
-      uses: actions/upload-artifact@v3
-      with:
-        name: nextjs
-        path: .       
-    - name: npm install, build, and test #Still build here to fail if error
+    - name: npm install, build, and test 
       run: |
         # Build and test the project, then
         # deploy to Azure Web App.
@@ -31,6 +26,15 @@ jobs:
         npm run build --if-present
         #npm run test --if-present
       working-directory: './'
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v3
+      with:
+        name: nextjs
+        path: |
+          .
+          !./node_modules
+          !./.git
+          !./build      
   deploy:
     name: Deploy
     needs: build
