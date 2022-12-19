@@ -1,7 +1,7 @@
 # File: .github/workflows/workflow.yml
 name: JavaScript CI
 
-on: [workflow_dispatch]
+on: [workflow_dispatch, push]
 
 env:
   AZURE_WEBAPP_NAME: 'NextJSAppService'   # set this to your application's name
