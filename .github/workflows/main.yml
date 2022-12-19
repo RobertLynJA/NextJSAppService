@@ -34,7 +34,7 @@ jobs:
           .
           !./node_modules
           !./.git
-          !./build      
+          #!./.next
   deploy:
     name: Deploy
     needs: build
