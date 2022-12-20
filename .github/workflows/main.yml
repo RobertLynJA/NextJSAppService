@@ -1,7 +1,14 @@
 # File: .github/workflows/workflow.yml
 name: JavaScript CI
 
-on: [workflow_dispatch, push]
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
 
 env:
   AZURE_WEBAPP_NAME: 'NextJSAppService'   # set this to your application's name
@@ -39,6 +46,7 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
     steps:
     - uses: actions/download-artifact@v3
       with:
