@@ -35,15 +35,19 @@ jobs:
         npm run build --if-present
         #npm run test --if-present
       working-directory: './'
+    - name: Move static folders into dynamic folder
+      run: |
+        cp ./public ./.next/standalone
+        cp ./.next/static ./.next/standalone/.next/static
+        cp ./.next/standalone ./.next/standalone
+      #Copy public from your project to public in the new folder
+      #Copy .next/static from your project to .next/static in the new folder
+      #Copy .next/standalone into the root of the new folder
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
       with:
         name: nextjs
-        path: |
-          .
-          !./node_modules
-          !./.git
-          #!./.next
+        path: ./.next/standalone
   deploy:
     name: Deploy
     needs: build
