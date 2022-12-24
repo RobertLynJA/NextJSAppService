@@ -39,6 +39,7 @@ jobs:
       run: |
         cp -r ./public ./.next/standalone
         cp -r ./.next/static ./.next/standalone/.next/static
+        rm ./.next/standalone/package.json
       #Copy public from your project to public in the new folder
       #Copy .next/static from your project to .next/static in the new folder
     - name: Upload artifact for deployment job
