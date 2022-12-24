@@ -39,10 +39,8 @@ jobs:
       run: |
         cp -r ./public ./.next/standalone
         cp -r ./.next/static ./.next/standalone/.next/static
-        cp -r ./.next/standalone ./.next/standalone
       #Copy public from your project to public in the new folder
       #Copy .next/static from your project to .next/static in the new folder
-      #Copy .next/standalone into the root of the new folder
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
       with:
