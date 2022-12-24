@@ -12,8 +12,8 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: 'NextJSAppService'   # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: './'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '18.x'                # set this to the node version to use
+  AZURE_WEBAPP_PACKAGE_PATH: './'         # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '18.x'                    # set this to the node version to use
 
 jobs:
   build:
@@ -37,11 +37,9 @@ jobs:
       working-directory: './'
     - name: Move static folders into dynamic folder
       run: |
-        cp -r ./public ./.next/standalone
+        cp -r ./public ./.next/standalone                     
         cp -r ./.next/static ./.next/standalone/.next/static
-        rm ./.next/standalone/package.json
-      #Copy public from your project to public in the new folder
-      #Copy .next/static from your project to .next/static in the new folder
+        rm ./.next/standalone/package.json #Remove package.json to force the server to use server.js
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
       with:
@@ -51,7 +49,7 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'pull_request' }}
+    if: ${{ github.event_name != 'pull_request' }} # Prevent deployment on push requests
     steps:
     - uses: actions/download-artifact@v3
       with:
