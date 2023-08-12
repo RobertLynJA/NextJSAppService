@@ -2,10 +2,7 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## There were couple changes made to get this working on [Azure App Service (Linux)](https://azure.microsoft.com/en-in/products/app-service/).
-
-- next.config.js - Switched to standalone build.
-- main.yml - Setup the CI/CD deployment pipeline
+## Using Dockerfile from NextJS to run on [Azure App Service (Linux)](https://azure.microsoft.com/en-in/products/app-service/).
 
 ## How to deploy
 
