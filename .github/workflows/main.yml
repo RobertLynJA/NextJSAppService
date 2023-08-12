@@ -58,5 +58,5 @@ jobs:
         uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
         with:
           app-name: ${{ env.AZURE_NEXTJS_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_NEXTJS_PUBLISH_PROFILE }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           images: 'ghcr.io/${{ env.REPO }}:${{ github.sha }}'
