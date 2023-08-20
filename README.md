@@ -8,4 +8,5 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 - Edit .github/workflows/main.yml and set the web app name to your App Service name
   -   AZURE_WEBAPP_NAME: '** Your app name here **'
+  -   Add the Azure Application Setting: **WEBSITES_PORT** Value: **3000**
 - Download your App service publish profile and add it to your repository secrets under the name AZURE_WEBAPP_PUBLISH_PROFILE 
