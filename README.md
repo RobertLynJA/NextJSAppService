@@ -1,4 +1,4 @@
-# Next.js Project with CI/CD deploying to Azure App Service (POC)
+# Next.js 14 Project with CI/CD deploying to Azure App Service (POC)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
